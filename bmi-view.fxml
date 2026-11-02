@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/27.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mycompany.bmicalculator.BmiController"
+      alignment="CENTER" spacing="22.0" styleClass="page-root">
+
+    <padding>
+        <Insets top="34.0" right="44.0" bottom="34.0" left="44.0"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="12.0" maxWidth="760.0">
+        <VBox spacing="5.0">
+            <Label text="BMI CALCULATOR" styleClass="eyebrow"/>
+            <Label text="Know your body." styleClass="page-title"/>
+            <Label text="A simple way to understand your body mass index."
+                   styleClass="subtitle"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="♥" styleClass="heart-icon"/>
+    </HBox>
+
+    <HBox alignment="TOP_CENTER" spacing="22.0" maxWidth="760.0">
+        <VBox spacing="18.0" prefWidth="365.0" styleClass="input-card">
+            <VBox spacing="5.0">
+                <Label text="Your information" styleClass="section-title"/>
+                <Label text="Isi data tubuh kamu di bawah ini." styleClass="helper-text"/>
+            </VBox>
+
+            <VBox spacing="8.0">
+                <Label text="Berat badan" styleClass="field-label"/>
+                <HBox alignment="CENTER" styleClass="input-shell">
+                    <TextField fx:id="weightField" promptText="Contoh: 60"
+                               styleClass="number-field"/>
+                    <Label text="kg" styleClass="unit-label"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="8.0">
+                <Label text="Tinggi badan" styleClass="field-label"/>
+                <HBox alignment="CENTER" styleClass="input-shell">
+                    <TextField fx:id="heightField" promptText="Contoh: 165"
+                               styleClass="number-field"/>
+                    <Label text="cm" styleClass="unit-label"/>
+                </HBox>
+            </VBox>
+
+            <Label fx:id="errorLabel" text="" styleClass="error-label"
+                   wrapText="true"/>
+
+            <Button text="Hitung BMI" onAction="#calculateBmi"
+                    maxWidth="Infinity" styleClass="primary-button"/>
+            <Button text="Reset" onAction="#resetForm"
+                    maxWidth="Infinity" styleClass="secondary-button"/>
+            <Label text="Catatan: gunakan satuan kilogram dan sentimeter."
+                   styleClass="small-note" wrapText="true"/>
+        </VBox>
+
+        <VBox spacing="16.0" prefWidth="365.0" styleClass="result-card">
+            <Label text="YOUR BMI RESULT" styleClass="eyebrow"/>
+            <Label fx:id="resultValue" text="--" styleClass="result-number"/>
+            <Label fx:id="categoryLabel" text="Belum dihitung"
+                   styleClass="category-pill category-neutral"/>
+            <Label fx:id="resultMessage"
+                   text="Masukkan data berat dan tinggi badan untuk melihat hasil."
+                   styleClass="result-message" wrapText="true"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <VBox spacing="7.0" styleClass="range-box">
+                <Label text="Panduan BMI dewasa" styleClass="range-title"/>
+                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                    <Region styleClass="dot dot-under"/>
+                    <Label text="Di bawah 18,5 — Underweight" styleClass="range-text"/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                    <Region styleClass="dot dot-normal"/>
+                    <Label text="18,5 – 24,9 — Normal" styleClass="range-text"/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                    <Region styleClass="dot dot-over"/>
+                    <Label text="25 – 29,9 — Overweight" styleClass="range-text"/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                    <Region styleClass="dot dot-obese"/>
+                    <Label text="30 ke atas — Obesity" styleClass="range-text"/>
+                </HBox>
+            </VBox>
+            <Label fx:id="rangeLabel" text="Rentang BMI dewasa: 18,5 – 24,9"
+                   styleClass="small-note" wrapText="true"/>
+        </VBox>
+    </HBox>
+
+    <Label text="BMI Calculator  •  Take care of yourself"
+           styleClass="footer-text"/>
+</VBox>
